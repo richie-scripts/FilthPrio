@@ -3,4 +3,4 @@ package-as: FilthyPrio
 ignore: # Files and directories beginning with a dot (such as .git) are automatically ignored, as is the pgkmeta file itself.
     - README.md
     - LICENSE
-manual-changelog: Changelog.md
+manual-changelog: Changelog.txt
