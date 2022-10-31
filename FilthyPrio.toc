@@ -1,6 +1,6 @@
 ## Interface: 30400
 ## Version: 3.4.0.1
-## Title: Filthy Loot Prio
+## Title: Filthy Prio
 ## Notes: Adds information to the item tooltip about the loot priority.
 ## Author: Toblerone
 
