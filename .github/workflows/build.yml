@@ -7,12 +7,15 @@ on:
   push:
     branches: [ "master" ]
     tags:
-      - '*bleep*'
-
+      - '**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    env:
+      CF_API_KEY: ${{ secrets.CF_API_KEY }}
+      GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Checkout addon
@@ -26,8 +29,5 @@ jobs:
           luarocks install --local luacheck
           /home/runner/.luarocks/bin/luacheck . --no-color -q
 
-      - name: Create Package
-        run: curl -s https://raw.githubusercontent.com/BigWigsMods/packager/master/release.sh | bash
-        env:
-          CF_API_KEY: ${{ secrets.CF_API_KEY }}
-          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+      - name: Package and release
+        uses: BigWigsMods/packager@v2
