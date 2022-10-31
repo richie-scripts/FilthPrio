@@ -1,5 +1,21 @@
--- Copy and paste this text into 'World of Warcraft\_classic_\Interface\AddOns\!FilthyPrio\PRIO_LIST_PHASE1.lua'
--- Update this list by going to the 'Filthy' menu at the top and clicking 'Loot Prio > Phase X'
+--[[
+Generate loot priorities for phase 1 items.
+
+Usage:
+set_prio('ITEM NAME', 'ITEM PRIORITY', 'ITEM NOTES', 'WHO HAS ITEM ALREADY')
+
+Example:
+set_prio('Thunderfury, Blessed Blade of the Windseeker', 'Best Tank > Worst Tank', 'Did someone say...?', '')
+
+This will put the following on the 'Thunderfury, Blessed Blade of the Windseeker' item tooltip.
+
+Loot Prio: Best Tank > Worst Tank
+Notes: Did someone say...?
+
+The 'Has Item' part will not display because it is blank.
+
+]]--
+
 -- Last updated: 27/10/2022 06:03:06 PM
 set_prio('Cloak of Averted Crisis', 'RFI', 'Filler', 'Thor, Chris, Jules')
 set_prio('Shawl of the Old Maid', 'MS>OS Roll', 'Filler', 'Aaron, Shazz')
