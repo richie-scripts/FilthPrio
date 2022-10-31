@@ -1,6 +1,4 @@
 package-as: FilthyPrio
 
 ignore:
-    - Changelog.txt
-
-manual-changelog: Changelog.txt
+  - .luacheckrc
