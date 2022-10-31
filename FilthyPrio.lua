@@ -1,7 +1,7 @@
 
 -- variable for default loot priority string
 -- change this if you want it to be something other than MS > OS
-local defaultPrio = "MS > OS"
+local defaultPrio = "MS>OS Roll"
 
 
 -- enable debugging (may cause spam)
@@ -78,7 +78,7 @@ local function OnTooltipSetItem_Prio(tooltip)
 		if prio then
 			tooltip:AddLine(' ') -- add line break before displaying prio tooltip
 		
-			if not string.len(prio) > 0 then
+			if string.len(prio) == 0 then
 				-- if prio is not set for the item, set it to the default
 				local prio = defaultPrio
 			end
