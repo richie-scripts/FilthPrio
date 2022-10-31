@@ -1,0 +1,6 @@
+v3.4.0.3
+ - Added GitHub repo and automatic packaging.
+v3.4.0.2
+ - Improved logic around when to display tooltips.
+v3.4.0.1
+ - Initial release.
