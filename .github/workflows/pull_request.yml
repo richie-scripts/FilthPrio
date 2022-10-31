@@ -13,7 +13,8 @@ jobs:
       - name: Checkout addon
         uses: actions/checkout@v3
 
-      - name: Run luacheck
-        uses: BigWigsMods/actions/luacheck@master
-        with:
-          args: -q
+      - name: Install and run Luacheck
+        run: |
+          sudo apt-get install luarocks
+          luarocks install --local luacheck
+          /home/runner/.luarocks/bin/luacheck . --no-color -q
