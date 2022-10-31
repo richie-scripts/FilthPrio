@@ -1,9 +1,0 @@
-## Interface: 30400
-## Version: 1.0.0
-## Title: Filthy Loot Prios
-## Notes: Loot prio for Filthy!
-## Author: Tobs
-
-FilthyPrio.lua
-
-PRIO_LIST_PHASE1.lua
