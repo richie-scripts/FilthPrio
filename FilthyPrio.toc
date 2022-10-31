@@ -1,8 +1,9 @@
 ## Interface: 30400
-## Version: 3.4.0.1
+## Version: @project-version@
 ## Title: Filthy Prio
 ## Notes: Adds information to the item tooltip about the loot priority.
 ## Author: Toblerone
+## X-Curse-Project-ID: 695458
 
 FilthyPrio.lua
 
