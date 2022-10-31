@@ -6,6 +6,14 @@ only = {
 	"1", -- globals
 }
 globals = {
+	-- addon
 	"prioDB",
 	"set_prio",
+	"colorString",
+	
+	-- wow api
+	"GetItemInfo",
+	"GameTooltip",
+	"ItemRefTooltip",
+	"IsAltKeyDown",	
 }
