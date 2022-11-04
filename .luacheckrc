@@ -16,7 +16,7 @@ globals = {
 	"GameTooltip",
 	"ItemRefTooltip",
 	"IsAltKeyDown",	
-	"GetRealmName"
-    "GetGuildInfo"
-    "UnitName"
+	"GetRealmName",
+    "GetGuildInfo",
+    "UnitName",
 }
