@@ -1,10 +1,21 @@
 -- Filthy guild only prio - only set to load if the player is in the guild Filthy on Arugal
 local realmName = GetRealmName()
 local guildName, guildRankName, guildRankIndex, realm = GetGuildInfo("player")
+local playerName, playerRealm = UnitName("player")
 local filthyRealm = "Arugal"
 local filthyGuild = "Filthy"
-if realmName == filthyRealm and guildName == filthyGuild then
-print(colorString('Loot Prio:', 'green')..' You\'re in Filthy. Sup?')
+local filthyOfficerRank = 2
+local filthyNames = {
+	["Mydadishung"] = true,
+	["Icantwalk"] = true,
+	["Icantrun"] = true,
+	["Squirties"] = true,
+}
+-- /script print(GetGuildInfo("player"))
+if realmName == filthyRealm and guildName == filthyGuild and
+(guildRankIndex <= filthyOfficerRank or filthyNames[playerName]) then
+print(colorString('Loot Prio:', 'green')..' Hi '..playerName)
+print(colorString('Loot Prio:', 'green')..' You\'re an Officer in Filthy. Sup?')
 -- Put prio updates here
 
 -- Last updated: 03/11/2022 04:37:38 PM
