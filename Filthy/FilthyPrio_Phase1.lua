@@ -1,4 +1,5 @@
--- Filthy guild only prio - only set to load if the player is in the guild Filthy on Arugal
+-- Filthy guild only prio - only set to load if the player is an officer in the guild Filthy on Arugal
+-- This is so I can maintain one version of the addon and others can use it :)
 local realmName = GetRealmName()
 local guildName, guildRankName, guildRankIndex, realm = GetGuildInfo("player")
 local playerName, playerRealm = UnitName("player")
