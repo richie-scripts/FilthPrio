@@ -6,5 +6,6 @@
 ## X-Curse-Project-ID: 695458
 
 FilthyPrio.lua
-
 PRIO_LIST_PHASE1.lua
+
+Filthy\FilthyPrio_Phase1.lua

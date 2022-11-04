@@ -3,16 +3,9 @@
 -- change this if you want it to be something other than MS > OS
 local defaultPrio = "MS>OS Roll"
 
-
--- enable debugging (may cause spam)
-local prioDebugMode = false
-
 -- create the database table
 prioDB = {}
 
-if prioDebugMode and prioDB then
-	print(colorString('Loot Prio:', 'green')..' Database created.')
-end
 
 -- Register an item in the prio DB
 function set_prio(item, prio, notes, hasitem)
@@ -23,10 +16,26 @@ function set_prio(item, prio, notes, hasitem)
 	prioDB[item]['notes'] = notes
 	prioDB[item]['hasitem'] = hasitem
 	
-	if prioDebugMode then
-		print(colorString('Loot Prio:', 'green')..' New item: '..item..' prio: '..prio..' notes: '..notes..' hasitem: '..hasitem)
-	end
+	--print(colorString('Loot Prio:', 'green')..' Added item: '..item)
 end
+
+--[[
+local realmName = GetRealmName()
+local guildName, guildRankName, guildRankIndex, realm = GetGuildInfo("player")
+if realmName == filthyRealm and guildName == filthyGuild then
+	prioDBF = {}
+end
+function set_prio_filthy(item, prio, notes, hasitem)
+	if not prioDBF[item] then
+		prioDBF[item] = {}
+	end
+	prioDBF[item]['prio'] = prio
+	prioDBF[item]['notes'] = notes
+	prioDBF[item]['hasitem'] = hasitem
+	
+	--print(colorString('Loot Prio:', 'green')..' Added item: '..item)
+end
+]]--
 
 -- Colours for the tooltip strings
 -- TODO: add class colours to tooltip when i figure out an easy system to determine class
@@ -68,6 +77,7 @@ local function OnTooltipSetItem_Prio(tooltip)
 	-- item tooltip detected - check if there is any loot prio set for this item name
 	local itemName = GetItemInfo(item)
 	local prioInfo = prioDB[itemName]
+
 	if prioInfo then
 		-- loot prio detected - display the tooltip
 		local prio = prioInfo['prio']
@@ -77,12 +87,11 @@ local function OnTooltipSetItem_Prio(tooltip)
 		-- Display item prio on the tooltip if the item exists in the database
 		if prio then
 			tooltip:AddLine(' ') -- add line break before displaying prio tooltip
-		
+			
 			if string.len(prio) == 0 then
 				-- if prio is not set for the item, set it to the default
-				local prio = defaultPrio
+				prio = defaultPrio
 			end
-			
 			tooltip:AddDoubleLine("Loot Prio:", colorString(prio, "white"))
 			
 			-- Display item notes and who has the item when the alt key is held down
