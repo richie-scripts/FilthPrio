@@ -13,6 +13,13 @@ local filthyNames = {
 	["Icantrun"] = true,
 	["Squirties"] = true,
 }
+local filthyNickNameClass = {
+	["Aaron"] = "warlock",
+	["Tobs"] = "deathknight",
+	["Koro"] = "paladin",
+	["Hawkey"] = "deathknight",
+	["Name"] = "class",
+}
 -- /script print(GetGuildInfo("player"))
 if realmName == filthyRealm and guildName == filthyGuild and
 (guildRankIndex <= filthyOfficerRank or filthyNames[playerName]) then
@@ -20,7 +27,7 @@ print(colorString('Loot Prio:', 'green')..' Hi '..playerName)
 print(colorString('Loot Prio:', 'green')..' You\'re an Officer in Filthy. Sup?')
 -- Put prio updates here
 
--- Last updated: 10/11/2022 01:38:10 PM
+-- Last updated: 10/11/2022 04:55:47 PM
 set_prio('Cloak of Averted Crisis', 'RFI', 'Filler', 'Thor, Chris, Jules')
 set_prio('Shawl of the Old Maid', 'OS/DE', 'Filler', 'Aaron, Shazz')
 set_prio('Shroud of Luminosity', 'RFI/DE', '', 'Thor, Jules, Samme')
@@ -51,11 +58,11 @@ set_prio('Chains of Adoration', 'Sterile', 'BiS non-quest neck RSham and HPal', 
 set_prio('Shield of Assimilation', 'Cluelust > Sterile', 'Second BiS RSham, HPal and Ele', 'Jess')
 set_prio('Mantle of the Locusts', 'RFI/DE', 'BiS: RDruid', 'Shazz')
 set_prio('Sash of the Parlor', 'RFI', 'Filler', 'Ethos')
-set_prio('Gemmed Wand of the Nerubians', '', 'BiS:Arcane Mage/Spriest', 'Zlips, Zeforr, Samme')
+set_prio('Gemmed Wand of the Nerubians', 'Jules', 'BiS:Arcane Mage/Spriest', 'Zlips, Zeforr, Samme')
 set_prio('Swarm Bindings', '', 'Filler', '')
 set_prio('Dawnwalkers', '', 'BIS: Rogue', '')
 set_prio('Inexorable Sabatons', '', 'Fig then OS', 'Fig')
-set_prio('Sabatons of Sudden Revival', 'Tobs > Msg', 'Equal BIS Frost DK / Close second BIS for Unholy', '')
+set_prio('Sabatons of Sudden Revival', 'Tobs > Msg', 'BIS: Unholy', '')
 set_prio('Webbed Death', 'dof > Hunters', 'BIS Rogues and Hunter DW', 'inkies')
 set_prio('Pauldrons of Unnatural Death', 'OS/DE', 'hawkey', 'Hawkey, Trisp OS')
 set_prio('Arachnoid Gold Band', '', '', 'Pili')
@@ -91,7 +98,7 @@ set_prio('Ablative Chitin Girdle', 'Fig > Hawkey', 'Bis both tanks  fig>hawkey',
 set_prio('Sinner\'s Bindings', 'Coonixx > Hovden', 'BiS: Feral, Rogue', '')
 set_prio('Bindings of the Hapless Prey', 'OS/DE', '', 'Fig')
 set_prio('Gloves of Calculated Risk', '', 'Hunter filler', 'Pili')
-set_prio('Crude Discolored Battlegrips', '', 'Filler', 'Trisp')
+set_prio('Crude Discolored Battlegrips', 'koro', 'Filler', 'Trisp')
 set_prio('Boots of Septic Wounds', '', '', '')
 set_prio('Boots of Persuasion', '', '', 'Samme')
 set_prio('Surplus Limb', 'Jules', 'Arcane mage/Spriest', 'Heasy')
@@ -149,7 +156,7 @@ set_prio('Shoulderguards of Opportunity', '', 'People looking for the next oppor
 set_prio('Spinning Fate', 'Inkies', 'good hit option for thrown, consult war/rogue', 'Trisp')
 set_prio('Thrusting Bands', 'Any rogues/feral need expertise/hit?', 'Ret BiS', 'Koro')
 set_prio('Breastplate of Tormented Rage', '', 'not better than tier', '')
-set_prio('Iron-Spring Jumpers', 'Trisp > Any DK want? > Sell', 'BoE item - decent hit piece for warr/dk', '')
+set_prio('Iron-Spring Jumpers', '', 'BoE item - decent hit piece for warr/dk', '')
 set_prio('Leggings of Colossal Strides', 'OS/DE', '', '')
 set_prio('Eruption-Scarred Boots', 'OS/DE', 'Filler', '')
 set_prio('Chestguard of Bitter Charms', 'DE', 'bad', '')
@@ -247,7 +254,7 @@ set_prio('Boundless Ambition', 'Fig', 'BiS: Blood and Prot (Armor)', 'Hawkey')
 set_prio('Wall of Terror', 'OS/DE', 'BiS: Prot', 'Fig, Trisp, Jess')
 set_prio('Last Laugh', 'Msg > Tobs > Hawkey', 'BiS: Prot > Unh > Blood', 'Fig')
 set_prio('Sinister Revenge', 'Hunters', 'BIS Assassin Rogue & Hunter DW', 'Inkies, Verge')
-set_prio('Envoy of Mortality', 'Pili > Bean', 'BiS: Hunter and Rogue - consider pili for dwarf gun prio', '')
+set_prio('Envoy of Mortality', 'Pili > Bean > Elguapo > Trisp > Rogues', 'BiS: Hunter and Rogue - consider pili for dwarf gun prio', '')
 set_prio('Betrayer of Humanity', 'Trisp (fury) > Hunter?', 'BiS: Arms, Ret, Unholy, Blood?', 'Trisp, Pili')
 set_prio('Journey\'s End', 'Coonixx > Hunters', 'BiS: Feral/Hunter - Both have 25m Heigen', '')
 set_prio('Cape of the Unworthy Wizard', 'Ethos', 'BiS: Disc/Demo', '')
@@ -283,12 +290,12 @@ set_prio('Headpiece of Reconciliation', '', 'BiS: RDruid', 'Chris')
 set_prio('Unsullied Cuffs', '', 'BiS: Disc, Spriest, Arcane, Demo, Aff, Balance, RDruid', 'Jules, Samme')
 set_prio('Reins of the Twilight Drake', '', '', '')
 set_prio('Chestguard of the Recluse', 'Inkies > Coonixx > Verge > Trisp', 'BiS: Cat, Rogue, Arms, Fury', 'Hovden')
-set_prio('Boots of Renewed Flight', 'Beanpole > Elguapo', 'BIS: Hunter', 'Pili')
+set_prio('Boots of Renewed Flight', 'Beanpole', 'BIS: Hunter', 'Pili, Elguapo')
 set_prio('Melancholy Sabatons', 'Greetings > Koro > Tobs', 'BiS: Arms / Frost / Unholy / Ret', 'Trisp, Msg')
-set_prio('Frosted Adroit Handguards', '', 'BiS: Rogue, Cat, Ret, Arms, Hunter', 'Pili')
+set_prio('Frosted Adroit Handguards', 'Big Coon', 'BiS: Rogue, Cat, Ret, Arms, Hunter', 'Pili')
 set_prio('Blue Aspect Helm', 'Beanpole > Elguapo', 'BiS: Enh/Hunters - reward the biggest pumper! Who will win? Bean or Died? died imo', 'Died, Pili')
 set_prio('Legplates of Sovereignty', 'Hawkey', 'BiS: Blood and Prot', 'Fig')
-set_prio('Mark of Norgannon', 'Died? Apparently Enh BiS', 'Enh BiS according to wowhead?', '')
+set_prio('Mark of Norgannon', 'Died? Apparently Enh BiS', '', '')
 set_prio('Blanketing Robes of Snow', 'OS/DE', 'BiS: Disc', 'Ethos, Zeforr')
 set_prio('Tunic of the Artifact Guardian', 'OS/DE', 'Check what mindblown is using, 4pc + off chest or 4pc + off gloves', 'Cluelust')
 set_prio('Arcanic Tramplers', 'Zlips', 'BiS: Disc, Spriest, Arcane, Demo, Aff, Balance, RDruid', 'Azz')
@@ -303,5 +310,6 @@ set_prio('Living Ice Crystals', 'Sterile > PVP RFI', 'A bit shit', '')
 set_prio('Leash of Heedless Magic', 'Heasy', 'BiS Disc, Spriest, Arcane, Balance, RDruid', 'Jules')
 set_prio('Unravelling Strands of Sanity', 'RDruid > OS', 'Filler', '')
 set_prio('Reins of the Azure Drake', 'Tobs for making this sick addon', 'Frost DK BiS - because Azure is like Frost.', '')
+
 
 end
