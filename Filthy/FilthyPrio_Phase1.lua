@@ -18,6 +18,12 @@ local filthyNickNameClass = {
 	["Tobs"] = "deathknight",
 	["Koro"] = "paladin",
 	["Hawkey"] = "deathknight",
+	["Fig"] = "paladin",
+	["Chris"] = "druid",
+	["Shazz"] = "warlock",
+	["Greetings"] = "deathknight",
+	["Trisp"] = "warrior",
+	["Inkies"] = "rogue",
 	["Name"] = "class",
 }
 -- /script print(GetGuildInfo("player"))
@@ -27,7 +33,7 @@ print(colorString('Loot Prio:', 'green')..' Hi '..playerName)
 print(colorString('Loot Prio:', 'green')..' You\'re an Officer in Filthy. Sup?')
 -- Put prio updates here
 
--- Last updated: 10/11/2022 04:55:47 PM
+-- Last updated: 10/11/2022 05:26:17 PM
 set_prio('Cloak of Averted Crisis', 'RFI', 'Filler', 'Thor, Chris, Jules')
 set_prio('Shawl of the Old Maid', 'OS/DE', 'Filler', 'Aaron, Shazz')
 set_prio('Shroud of Luminosity', 'RFI/DE', '', 'Thor, Jules, Samme')
@@ -230,7 +236,7 @@ set_prio('Breastplate of Frozen Pain', '', 'Filler', 'Sterile, Sandra')
 set_prio('Boots of the Great Construct', 'Died', 'BIS Enh?', '')
 set_prio('Gloves of Fast Reactions', 'MS > Sell', 'BoE', 'Coonixx')
 set_prio('Platehelm of the Great Wyrm', '', 'block set', '')
-set_prio('Heroic Key to the Focusing Iris', 'Greetings', 'Prot Pally > Demo > Dps Warrior = Aff = Ele >= Hunter = Enhance = Ret = Shadow = Boomy = Fire = Arcane > Hpal > Hpriest = Disc > Rsham > Frost/Unholy DK = Rogue > Prot Warrior > Rdruid = Bear = Blood DK', 'Fig, Thor, Trisp, Pili, Chriski')
+set_prio('Heroic Key to the Focusing Iris', 'Zlops', 'Prot Pally > Demo > Dps Warrior = Aff = Ele >= Hunter = Enhance = Ret = Shadow = Boomy = Fire = Arcane > Unholy DK > Frost DK > Hpal > Hpriest = Disc > Rsham > Prot Warrior > Rdruid = Bear = Blood DK', 'Fig, Thor, Trisp, Pili, Chriski')
 set_prio('Icy Blast Amulet', 'Hunter', '2nd BIS for Rogues', 'Inkies, Verge')
 set_prio('Key to the Focusing Iris', '', '10 man key to keep track', 'Squirties, Beanpole, Coonixx, Heasy, Died, Cypack, Aaron, Zeforr, Inkies, Hellgrazer')
 set_prio('Murder', 'OS/DE', 'Rogue / Hunter filler?', 'Verge')
