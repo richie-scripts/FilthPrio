@@ -19,23 +19,6 @@ function set_prio(item, prio, notes, hasitem)
 	--print(colorString('Loot Prio:', 'green')..' Added item: '..item)
 end
 
---[[
-local realmName = GetRealmName()
-local guildName, guildRankName, guildRankIndex, realm = GetGuildInfo("player")
-if realmName == filthyRealm and guildName == filthyGuild then
-	prioDBF = {}
-end
-function set_prio_filthy(item, prio, notes, hasitem)
-	if not prioDBF[item] then
-		prioDBF[item] = {}
-	end
-	prioDBF[item]['prio'] = prio
-	prioDBF[item]['notes'] = notes
-	prioDBF[item]['hasitem'] = hasitem
-	
-	--print(colorString('Loot Prio:', 'green')..' Added item: '..item)
-end
-]]--
 
 -- Colours for the tooltip strings
 -- TODO: add class colours to tooltip when i figure out an easy system to determine class
@@ -79,7 +62,6 @@ local function OnTooltipSetItem_Prio(tooltip)
 	local prioInfo = prioDB[itemName]
 
 	if prioInfo then
-		-- loot prio detected - display the tooltip
 		local prio = prioInfo['prio']
 		local notes = prioInfo['notes']
 		local hasitem = prioInfo['hasitem']
