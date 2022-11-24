@@ -4,6 +4,14 @@
 ## Notes: Adds information to the item tooltip about the loot priority.
 ## Author: Toblerone
 ## X-Curse-Project-ID: 695458
+## SavedVariables: PrioDB
+
+#@no-lib-strip@
+libs\LibStub\LibStub.lua
+libs\AceAddon-3.0\AceAddon-3.0.xml
+libs\AceDB-3.0\AceDB-3.0.xml
+libs\AceDBOptions-3.0\AceDBOptions-3.0.xml
+#@end-no-lib-strip@
 
 FilthyPrio.lua
 PRIO_LIST_PHASE1.lua
