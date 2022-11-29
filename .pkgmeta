@@ -2,3 +2,8 @@ package-as: FilthyPrio
 
 ignore:
   - .luacheckrc
+  - .vscode
+  - data
+  - libs
+  - FPCore.lua
+  - FPData.lua

@@ -2,5 +2,18 @@
     "cSpell.words": [
         "luacheckrc",
         "Prio"
+    ],
+    "Lua.diagnostics.globals": [
+        "GetRealmName",
+        "UnitFactionGroup",
+        "LibStub",
+        "GetAddOnMetadata",
+        "GetServerTime",
+        "GetBuildInfo",
+        "GetItemInfo",
+        "GameTooltip",
+        "ItemRefTooltip",
+        "prioDB",
+        "FP"
     ]
 }
