@@ -7,3 +7,4 @@ ignore:
   - libs
   - FPCore.lua
   - FPData.lua
+  - libs.xml
