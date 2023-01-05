@@ -6,10 +6,6 @@
 ## X-Curse-Project-ID: 695458
 ## SavedVariables: PrioDB
 
-#@no-lib-strip@
-libs.xml
-#@end-no-lib-strip@
-
 FilthyPrio.lua
 PRIO_LIST_PHASE1.lua
 
