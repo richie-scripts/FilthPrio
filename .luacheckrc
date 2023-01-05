@@ -17,13 +17,18 @@ globals = {
 	"ItemRefTooltip",
 	"IsAltKeyDown",
 	"GetRealmName",
-    "GetGuildInfo",
-    "UnitName",
+	"GetGuildInfo",
+	"UnitName",
 	"GetTime",
 	"C_Timer",
 	"DEFAULT_CHAT_FRAME",
 
-    -- libs
-    "LibStub",
+	-- libs
+	"LibStub",
 	"geterrorhandler",
+}
+include_files = {
+	"FilthyPrio.lua",
+	"PRIO_LIST_PHASE1.lua",
+	"Filthy/FilthyPrio_Phase1.lua",
 }
