@@ -27,9 +27,6 @@ globals = {
 	"LibStub",
 	"geterrorhandler",
 }
-ignore = {
-	"113/*",
-}
 include_files = {
 	"**/FilthyPrio.lua",
 	"**/PRIO_LIST_PHASE1.lua",
