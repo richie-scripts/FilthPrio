@@ -24,13 +24,11 @@ function FP:OnInitialize()
 
 	self:RegisterComm(self.commPrefix);
 	self.loadTime = GetServerTime();
-    self.db.profile.loadTime = GetServerTime();
+	self.db.profile.loadTime = GetServerTime();
 
 	-- Create FP.items shortcut
 	self.items = self.db.profile.items
 end
-
-
 
 -- GLOBALS: LibStub, PrioDB
 -- Register an item in the prio DB
