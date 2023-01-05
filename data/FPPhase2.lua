@@ -423,13 +423,13 @@ function FP:buildUlduarData()
 			'Show of Faith',
 			'Treads of the False Oracle',
 			'Mimiron\'s Head',
-		}
+		},
 	}
 
 	for num, item in pairs(items[10]) do
 		if (not self.db.profile.items.ulduar[item]) then
 			--Add default values if no value is already set.
-            self.db.profile.items.ulduar[item] = {}
+			self.db.profile.items.ulduar[item] = {}
 			for k, v in pairs(items[key]) do
 
 			end

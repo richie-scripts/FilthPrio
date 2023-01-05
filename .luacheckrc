@@ -10,13 +10,20 @@ globals = {
 	"prioDB",
 	"set_prio",
 	"colorString",
-	
+
 	-- wow api
 	"GetItemInfo",
 	"GameTooltip",
 	"ItemRefTooltip",
-	"IsAltKeyDown",	
+	"IsAltKeyDown",
 	"GetRealmName",
     "GetGuildInfo",
     "UnitName",
+	"GetTime",
+	"C_Timer",
+	"DEFAULT_CHAT_FRAME",
+
+    -- libs
+    "LibStub",
+	"geterrorhandler",
 }
