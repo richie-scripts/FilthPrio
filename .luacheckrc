@@ -10,6 +10,21 @@ globals = {
 	"prioDB",
 	"FilthyPrio",
 
+	-- wow api
+	"CreateFrame",
+	"C_Timer",
+	"DEFAULT_CHAT_FRAME",
+	"GameTooltip",
+	"GetTime",
+	"GetItemInfo",
+	"GetRealmName",
+	"GetGuildInfo",
+	"ItemRefTooltip",
+	"IsAltKeyDown",
+	"UnitName",
+	"UnitFactionGroup",
+	"UnitClass",
+
 	-- libs
 	"LibStub",
 	"geterrorhandler",
