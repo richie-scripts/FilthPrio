@@ -4,6 +4,12 @@
 
 FilthyPrio = {}
 
+-- Define global variables
+local UnitName, UnitFactionGroup, UnitClass = UnitName, UnitFactionGroup, UnitClass
+local GameTooltip, ItemRefTooltip, DEFAULT_CHAT_FRAME = GameTooltip, ItemRefTooltip, DEFAULT_CHAT_FRAME
+local GetRealmName, GetGuildInfo, GetItemInfo, GetTime = GetRealmName, GetGuildInfo, GetItemInfo, GetTime
+local CreateFrame, IsAltKeyDown, C_Timer = CreateFrame, IsAltKeyDown, C_Timer
+
 -- Get character details
 FilthyPrio.player = {
 	name = UnitName("player"),
