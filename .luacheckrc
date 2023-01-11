@@ -8,10 +8,7 @@ only = {
 globals = {
 	-- addon
 	"prioDB",
-	"set_prio",
-	"colorString",
-	"buildPrio",
-	"buildFilthyGuildPrio",
+	"FilthyPrio",
 
 	-- wow api
 	"GetItemInfo",

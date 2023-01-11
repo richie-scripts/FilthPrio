@@ -2,18 +2,21 @@
 -- OLD PROCESS
 ----------------------------
 
+FilthyPrio = {}
+
+-- Get character details
+FilthyPrio.player = {
+	name = UnitName("player"),
+	realm = GetRealmName(),
+	faction = UnitFactionGroup('player'),
+}
+FilthyPrio.player.class, FilthyPrio.player.classId = UnitClass("player")
+FilthyPrio.player.guildName, FilthyPrio.player.guildRank, FilthyPrio.player.guildRankIndex = GetGuildInfo("player")
+
 -- Load saved database or create a new one
 prioDB = prioDB or {}
 
-
-FilthyPrio = {}
-
 local _
-
-FilthyPrio.realmName = GetRealmName()
-FilthyPrio.guildName, FilthyPrio.guildRank, FilthyPrio.guildRankIndex = GetGuildInfo("player")
-FilthyPrio.playerName = UnitName("player")
-FilthyPrio.faction = UnitFactionGroup('player')
 
 function FilthyPrio.SetPrio(item, prio, notes, hasitem)
 	if not prioDB[item] then
@@ -23,7 +26,7 @@ function FilthyPrio.SetPrio(item, prio, notes, hasitem)
 	prioDB[item]['notes'] = notes
 	prioDB[item]['hasitem'] = hasitem
 
-	--print(ColorString('Loot Prio:', 'green')..' Added item: '..item)
+	--FilthyPrio.Print('Added item: '..item)
 end
 
 -- Colours for the tooltip strings
@@ -61,6 +64,19 @@ end
 function FilthyPrio.Print(msg)
 	if msg then
 		DEFAULT_CHAT_FRAME:AddMessage(FilthyPrio.ColorString('Filthy Prio: ', 'green') .. msg)
+	end
+end
+
+function FilthyPrio.DebugVar(...)
+	local args = { ... }
+	for i, v in ipairs(args) do
+		if (i % 2 == 1) then -- number is odd
+			local varValue = tostring(args[i + 1])
+			if string.len(varValue) > 0 then
+				DEFAULT_CHAT_FRAME:AddMessage(FilthyPrio.ColorString('FPDebugVar: ', 'blue') ..
+					FilthyPrio.ColorString(tostring(v) .. '= ', 'orange') .. varValue)
+			end
+		end
 	end
 end
 
@@ -108,7 +124,8 @@ function FilthyPrio.Tooltip(tooltip)
 	end
 end
 
-function FilthyPrio.Load()
+function FilthyPrio.InitPrios()
+	-- Build specific prios
 	if FilthyPrio.IsFilthyOfficer() then
 		FilthyPrio.buildOfficerPrio()
 	else
@@ -116,22 +133,19 @@ function FilthyPrio.Load()
 	end
 end
 
-function FilthyPrio.EventHandler(self, event, ...)
-	if event == "PLAYER_ENTERING_WORLD" then
-		FilthyPrio.Load()
-	end
-
-	if event == "ADDON_LOADED" then
-		FilthyPrio.Print("Addon loaded.")
-	end
-end
-
--- Create a new frame to register events
-local loadFrame = CreateFrame("FRAME")
-loadFrame:RegisterEvent("ADDON_LOADED")
-loadFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
-loadFrame:SetScript("OnEvent", FilthyPrio.EventHandler)
-
 -- Register events to add to the item tooltip
 GameTooltip:HookScript("OnTooltipSetItem", FilthyPrio.Tooltip)
 ItemRefTooltip:HookScript("OnTooltipSetItem", FilthyPrio.Tooltip)
+
+-- Create a new frame to register events
+local loadFrame = CreateFrame("FRAME")
+--loadFrame:RegisterEvent("PLAYER_LOGIN")
+loadFrame:RegisterEvent("VARIABLES_LOADED")
+loadFrame:SetScript("OnEvent", function(self, event, ...)
+	if event == "VARIABLES_LOADED" then
+		FilthyPrio.Print("Addon Loaded.")
+
+		FilthyPrio.InitPrios()
+		self:UnregisterEvent(event)
+	end
+end)
