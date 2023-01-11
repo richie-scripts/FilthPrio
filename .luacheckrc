@@ -10,6 +10,8 @@ globals = {
 	"prioDB",
 	"set_prio",
 	"colorString",
+	"buildPrio",
+	"buildFilthyGuildPrio",
 
 	-- wow api
 	"GetItemInfo",

@@ -2,7 +2,7 @@ local addonName, addon = ...
 local FP = addon.new
 
 function FP:buildUlduarData()
-	local items = {
+	local defaultItems = {
 		[10] = {
 			'Band of Lights',
 			'Breastplate of the Timeless',
@@ -425,16 +425,29 @@ function FP:buildUlduarData()
 			'Mimiron\'s Head',
 		},
 	}
+    local ulduar = self.db.profile.items.ulduar
 
-	for num, item in pairs(items[10]) do
-		if (not self.db.profile.items.ulduar[item]) then
+	-- Build 10 man items in database
+	for num, item in pairs(defaultItems[10]) do
+		if (not ulduar[10][item]) then
 			--Add default values if no value is already set.
-			self.db.profile.items.ulduar[item] = {}
-			for k, v in pairs(items[key]) do
+			ulduar[10][item] = {}
+			ulduar[10][item].prio = {}
+			ulduar[10][item].notes = ''
+            ulduar[10][item].hasItem = {}
+			ulduar[10][item].updateTime = {}
+		end
+    end
 
-			end
-			self.db.profile.items.ulduar[v].prio = {}
-			self.db.profile.items.ulduar[v].notes = ''
+	-- Build 25 man items in database
+	for num, item in pairs(defaultItems[25]) do
+		if (not ulduar[25][item]) then
+			--Add default values if no value is already set.
+			ulduar[25][item] = {}
+			ulduar[25][item].prio = {}
+			ulduar[25][item].notes = ''
+            ulduar[25][item].hasItem = {}
+			ulduar[25][item].updateTime = {}
 		end
 	end
 end

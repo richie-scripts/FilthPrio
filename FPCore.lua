@@ -1,4 +1,4 @@
--- Currently only tested and working on Wrath
+-- Currently only tested and working on Wrath so
 local _, _, _, tocVersion = GetBuildInfo();
 if (tocVersion < 30000 and tocVersion > 40000) then
 	print('|cFF00ff00FilthyPrio|r: This addon currently only functions on the Wrath Classic client.')
@@ -22,12 +22,15 @@ function FP:OnInitialize()
 	-- Initialise Addon
 	self.db = LibStub('AceDB-3.0'):New('PrioDB', FP.prioDefaults, 'Default');
 
-	self:RegisterComm(self.commPrefix);
-	self.loadTime = GetServerTime();
-	self.db.profile.loadTime = GetServerTime();
+    -- Register the communications event
+    self:RegisterComm(self.commPrefix);
 
 	-- Create FP.items shortcut
-	self.items = self.db.profile.items
+    self.items = self.db.profile.items
+
+	-- Load time
+	self.loadTime = GetServerTime();
+	self.db.profile.loadTime = GetServerTime();
 end
 
 -- GLOBALS: LibStub, PrioDB
