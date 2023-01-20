@@ -1,4 +1,4 @@
-## Interface: 30400
+## Interface: 30401
 ## Version: @project-version@
 
 ## Title: Filthy Prio
@@ -12,6 +12,7 @@ FilthyPrio.lua
 
 PRIO_LIST_PHASE1.lua
 Filthy\FilthyPrio_Phase1.lua
+
 
 
 

@@ -4,15 +4,6 @@
 
 FilthyPrio = {}
 
--- Get character details
-FilthyPrio.player = {
-	name = UnitName("player"),
-	realm = GetRealmName(),
-	faction = UnitFactionGroup('player'),
-}
-FilthyPrio.player.class, FilthyPrio.player.classId = UnitClass("player")
-FilthyPrio.player.guildName, FilthyPrio.player.guildRank, FilthyPrio.player.guildRankIndex = GetGuildInfo("player")
-
 -- Load saved database or create a new one
 prioDB = prioDB or {}
 
@@ -133,6 +124,17 @@ function FilthyPrio.InitPrios()
 	end
 end
 
+function FilthyPrio.GetPlayerDetails()
+	-- Get character details
+	FilthyPrio.player = {
+		name = UnitName("player"),
+		realm = GetRealmName(),
+		faction = UnitFactionGroup('player'),
+	}
+	FilthyPrio.player.class, FilthyPrio.player.classId = UnitClass("player")
+	FilthyPrio.player.guildName, FilthyPrio.player.guildRank, FilthyPrio.player.guildRankIndex = GetGuildInfo("player")
+end
+
 -- Register events to add to the item tooltip
 GameTooltip:HookScript("OnTooltipSetItem", FilthyPrio.Tooltip)
 ItemRefTooltip:HookScript("OnTooltipSetItem", FilthyPrio.Tooltip)
@@ -144,8 +146,11 @@ loadFrame:RegisterEvent("VARIABLES_LOADED")
 loadFrame:SetScript("OnEvent", function(self, event, ...)
 	if event == "VARIABLES_LOADED" then
 		FilthyPrio.Print("Addon Loaded.")
-
+		FilthyPrio.GetPlayerDetails()
 		FilthyPrio.InitPrios()
 		self:UnregisterEvent(event)
+
+	elseif event == "PLAYER_LOGIN" or event == "PLAYER_ENTERING_WORLD" then
+		FilthyPrio.GetPlayerDetails()
 	end
 end)
