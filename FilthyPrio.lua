@@ -135,6 +135,8 @@ function FilthyPrio.GetPlayerDetails()
 	FilthyPrio.player.guildName, FilthyPrio.player.guildRank, FilthyPrio.player.guildRankIndex = GetGuildInfo("player")
 end
 
+FilthyPrio.GetPlayerDetails()
+
 -- Register events to add to the item tooltip
 GameTooltip:HookScript("OnTooltipSetItem", FilthyPrio.Tooltip)
 ItemRefTooltip:HookScript("OnTooltipSetItem", FilthyPrio.Tooltip)
