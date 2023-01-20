@@ -2,7 +2,10 @@
 -- OLD PROCESS
 ----------------------------
 
+
+
 FilthyPrio = {}
+FilthyPrio.Version = '3.4.0.22'
 
 -- Load saved database or create a new one
 prioDB = prioDB or {}
