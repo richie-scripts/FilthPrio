@@ -24,6 +24,7 @@ globals = {
 	"UnitName",
 	"UnitFactionGroup",
 	"UnitClass",
+	"IsInGuild",
 
 	-- libs
 	"LibStub",
@@ -32,5 +33,6 @@ globals = {
 include_files = {
 	"**/FilthyPrio.lua",
 	"**/PRIO_LIST_PHASE1.lua",
-	"**/Filthy/FilthyPrio_Phase1.lua",
+	"**/PRIO_LIST_PHASE2.lua",
+	"**/Filthy/Filthy_Guild.lua",
 }
