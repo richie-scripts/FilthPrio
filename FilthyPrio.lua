@@ -127,7 +127,8 @@ function FilthyPrio.InitPrios()
 	if FilthyPrio.IsFilthyOfficer() then
 		FilthyPrio.buildOfficerPrio()
 	else
-		FilthyPrio.buildPrio()
+        FilthyPrio.buildPrioP1()
+		FilthyPrio.buildPrioP2()
 	end
 end
 

@@ -36,8 +36,7 @@ function FilthyPrio.IsFilthyOfficer()
 end
 
 function FilthyPrio.buildOfficerPrio()
-	FilthyPrio.Print('Hi ' .. p.name)
-	FilthyPrio.Print('You\'re an Officer in Filthy. Sup?')
+	FilthyPrio.Print('You\'re an Officer in Filthy. Loading Ulduar Prios')
 
 	-------------------------
 	-- Put prio updates here
