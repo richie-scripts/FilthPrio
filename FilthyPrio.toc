@@ -13,6 +13,3 @@ FilthyPrio.lua
 PRIO_LIST_PHASE1.lua
 Filthy\FilthyPrio_Phase1.lua
 
-
-
-

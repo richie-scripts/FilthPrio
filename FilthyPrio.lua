@@ -6,11 +6,34 @@
 
 FilthyPrio = {}
 FilthyPrio.Version = '3.4.0.22'
+FilthyPrio.Player = {}
 
 -- Load saved database or create a new one
 prioDB = prioDB or {}
 
+-- local shortcut variables
 local _
+local p = FilthyPrio.Player
+
+
+function FilthyPrio.Print(msg)
+	if msg then
+		DEFAULT_CHAT_FRAME:AddMessage(FilthyPrio.ColorString('Filthy Prio: ', 'green') .. msg)
+	end
+end
+
+function FilthyPrio.DebugVar(...)
+	local args = { ... }
+	for i, v in ipairs(args) do
+		if (i % 2 == 1) then -- number is odd
+			local varValue = tostring(args[i + 1])
+			if string.len(varValue) > 0 then
+				DEFAULT_CHAT_FRAME:AddMessage(FilthyPrio.ColorString('FPDebugVar: ', 'blue') ..
+					FilthyPrio.ColorString(tostring(v) .. '= ', 'orange') .. varValue)
+			end
+		end
+	end
+end
 
 function FilthyPrio.SetPrio(item, prio, notes, hasitem)
 	if not prioDB[item] then
@@ -53,25 +76,6 @@ function FilthyPrio.ColorString(str, color)
 	end
 
 	return c .. str .. "|r"
-end
-
-function FilthyPrio.Print(msg)
-	if msg then
-		DEFAULT_CHAT_FRAME:AddMessage(FilthyPrio.ColorString('Filthy Prio: ', 'green') .. msg)
-	end
-end
-
-function FilthyPrio.DebugVar(...)
-	local args = { ... }
-	for i, v in ipairs(args) do
-		if (i % 2 == 1) then -- number is odd
-			local varValue = tostring(args[i + 1])
-			if string.len(varValue) > 0 then
-				DEFAULT_CHAT_FRAME:AddMessage(FilthyPrio.ColorString('FPDebugVar: ', 'blue') ..
-					FilthyPrio.ColorString(tostring(v) .. '= ', 'orange') .. varValue)
-			end
-		end
-	end
 end
 
 -- Loot Prio on Item Mouseover
@@ -129,16 +133,16 @@ end
 
 function FilthyPrio.GetPlayerDetails()
 	-- Get character details
-	FilthyPrio.player = {
-		name = UnitName("player"),
-		realm = GetRealmName(),
-		faction = UnitFactionGroup('player'),
-	}
-	FilthyPrio.player.class, FilthyPrio.player.classId = UnitClass("player")
-	FilthyPrio.player.guildName, FilthyPrio.player.guildRank, FilthyPrio.player.guildRankIndex = GetGuildInfo("player")
+	p.name = UnitName("player")
+	p.realm = GetRealmName()
+	p.faction = UnitFactionGroup('player')
+	p.class, p.classId = UnitClass("player")
 end
 
-FilthyPrio.GetPlayerDetails()
+function FilthyPrio.GetPlayerGuild()
+	-- Get character guild details
+	p.guildName, p.guildRank, p.guildRankIndex = GetGuildInfo("player")
+end
 
 -- Register events to add to the item tooltip
 GameTooltip:HookScript("OnTooltipSetItem", FilthyPrio.Tooltip)
@@ -146,16 +150,25 @@ ItemRefTooltip:HookScript("OnTooltipSetItem", FilthyPrio.Tooltip)
 
 -- Create a new frame to register events
 local loadFrame = CreateFrame("FRAME")
---loadFrame:RegisterEvent("PLAYER_LOGIN")
-loadFrame:RegisterEvent("VARIABLES_LOADED")
+loadFrame:RegisterEvent("PLAYER_LOGIN")
 loadFrame:SetScript("OnEvent", function(self, event, ...)
-	if event == "VARIABLES_LOADED" then
+	if event == "PLAYER_LOGIN" then
 		FilthyPrio.Print("Addon Loaded.")
 		FilthyPrio.GetPlayerDetails()
-		FilthyPrio.InitPrios()
-		self:UnregisterEvent(event)
+		if IsInGuild() then
+			-- Player is in guild but the API can't retrieve the guild information just yet
+			-- so we register the guild roster update event and retrieve it shortly.
+			self:RegisterEvent("GUILD_ROSTER_UPDATE")
+		else
+			FilthyPrio.InitPrios()
+		end
 
-	elseif event == "PLAYER_LOGIN" or event == "PLAYER_ENTERING_WORLD" then
-		FilthyPrio.GetPlayerDetails()
+
+	elseif event == "GUILD_ROSTER_UPDATE" then
+		FilthyPrio.GetPlayerGuild()
+		if p.guildName ~= nil then
+			FilthyPrio.InitPrios()
+			self:UnregisterEvent("GUILD_ROSTER_UPDATE")
+		end
 	end
 end)
