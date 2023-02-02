@@ -5,7 +5,7 @@
 
 
 FilthyPrio = {}
-FilthyPrio.Version = '3.4.0.22'
+FilthyPrio.Version = '3.4.0.23'
 FilthyPrio.Player = {}
 
 -- Load saved database or create a new one
@@ -127,7 +127,7 @@ function FilthyPrio.InitPrios()
 	if FilthyPrio.IsFilthyOfficer() then
 		FilthyPrio.buildOfficerPrio()
 	else
-        FilthyPrio.buildPrioP1()
+		FilthyPrio.buildPrioP1()
 		FilthyPrio.buildPrioP2()
 	end
 end
