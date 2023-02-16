@@ -5,7 +5,7 @@
 
 
 FilthyPrio = {}
-FilthyPrio.Version = '3.4.0.26'
+FilthyPrio.Version = '3.4.0.27'
 FilthyPrio.Player = {}
 
 -- Load saved database or create a new one
@@ -29,7 +29,7 @@ function FilthyPrio.DebugVar(...)
 			local varValue = tostring(args[i + 1])
 			if string.len(varValue) > 0 then
 				DEFAULT_CHAT_FRAME:AddMessage(FilthyPrio.ColorString('FPDebugVar: ', 'blue') ..
-					FilthyPrio.ColorString(tostring(v) .. '= ', 'orange') .. varValue)
+				FilthyPrio.ColorString(tostring(v) .. '= ', 'orange') .. varValue)
 			end
 		end
 	end
@@ -51,28 +51,50 @@ end
 function FilthyPrio.ColorString(str, color)
 	local c = ''
 
-	if color == 'deathknight' then c = '|cFFC41F3B'
-	elseif color == 'druid' then c = '|cFFFF7D0A'
-	elseif color == 'hunter' then c = '|cFFABD473'
-	elseif color == 'mage' then c = '|cFF69CCF0'
-	elseif color == 'paladin' then c = '|cFFF58CBA'
-	elseif color == 'priest' then c = '|cFFFFFFFF'
-	elseif color == 'rogue' then c = '|cFFFFF569'
-	elseif color == 'shaman' then c = '|cFF0070DE'
-	elseif color == 'warlock' then c = '|cFF9482C9'
-	elseif color == 'warrior' then c = '|cFFC79C6E'
-	elseif color == 'red' then c = '|cFFff0000'
-	elseif color == 'gray' then c = '|cFFa6a6a6'
-	elseif color == 'purple' then c = '|cFFB900FF'
-	elseif color == 'blue' then c = '|cFF8080ff'
-	elseif color == 'lightblue' then c = '|cB900FFFF'
-	elseif color == 'reputationblue' then c = '|cFF8080ff'
-	elseif color == 'yellow' then c = '|cFFffff00'
-	elseif color == 'orange' then c = '|cFFFF6F22'
-	elseif color == 'green' then c = '|cFF00ff00'
-	elseif color == 'white' then c = '|cFFffffff'
-	elseif color == 'gold' then c = "|cFFffd100" -- this is the default game font
-	else c = '|cFFffffff' -- default to white
+	if color == 'deathknight' then
+		c = '|cFFC41F3B'
+	elseif color == 'druid' then
+		c = '|cFFFF7D0A'
+	elseif color == 'hunter' then
+		c = '|cFFABD473'
+	elseif color == 'mage' then
+		c = '|cFF69CCF0'
+	elseif color == 'paladin' then
+		c = '|cFFF58CBA'
+	elseif color == 'priest' then
+		c = '|cFFFFFFFF'
+	elseif color == 'rogue' then
+		c = '|cFFFFF569'
+	elseif color == 'shaman' then
+		c = '|cFF0070DE'
+	elseif color == 'warlock' then
+		c = '|cFF9482C9'
+	elseif color == 'warrior' then
+		c = '|cFFC79C6E'
+	elseif color == 'red' then
+		c = '|cFFff0000'
+	elseif color == 'gray' then
+		c = '|cFFa6a6a6'
+	elseif color == 'purple' then
+		c = '|cFFB900FF'
+	elseif color == 'blue' then
+		c = '|cFF8080ff'
+	elseif color == 'lightblue' then
+		c = '|cB900FFFF'
+	elseif color == 'reputationblue' then
+		c = '|cFF8080ff'
+	elseif color == 'yellow' then
+		c = '|cFFffff00'
+	elseif color == 'orange' then
+		c = '|cFFFF6F22'
+	elseif color == 'green' then
+		c = '|cFF00ff00'
+	elseif color == 'white' then
+		c = '|cFFffffff'
+	elseif color == 'gold' then
+		c = "|cFFffd100" -- this is the default game font
+	else
+		c = '|cFFffffff' -- default to white
 	end
 
 	return c .. str .. "|r"
@@ -163,8 +185,6 @@ loadFrame:SetScript("OnEvent", function(self, event, ...)
 		else
 			FilthyPrio.InitPrios()
 		end
-
-
 	elseif event == "GUILD_ROSTER_UPDATE" then
 		FilthyPrio.GetPlayerGuild()
 		if p.guildName ~= nil then
