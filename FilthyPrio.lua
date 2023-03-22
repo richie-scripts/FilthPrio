@@ -5,7 +5,7 @@
 
 
 FilthyPrio = {}
-FilthyPrio.Version = '3.4.0.28'
+FilthyPrio.Version = '3.4.0.29'
 FilthyPrio.Player = {}
 
 -- Load saved database or create a new one
