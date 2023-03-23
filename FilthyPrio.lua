@@ -5,7 +5,7 @@
 
 
 FilthyPrio = {}
-FilthyPrio.Version = '3.4.0.29a'
+FilthyPrio.Version = '3.4.0.29'
 FilthyPrio.Player = {}
 
 -- Load saved database or create a new one
@@ -29,7 +29,7 @@ function FilthyPrio.DebugVar(...)
 			local varValue = tostring(args[i + 1])
 			if string.len(varValue) > 0 then
 				DEFAULT_CHAT_FRAME:AddMessage(FilthyPrio.ColorString('FPDebugVar: ', 'blue') ..
-				FilthyPrio.ColorString(tostring(v) .. '= ', 'orange') .. varValue)
+					FilthyPrio.ColorString(tostring(v) .. '= ', 'orange') .. varValue)
 			end
 		end
 	end
