@@ -4,17 +4,33 @@
         "Prio"
     ],
     "Lua.diagnostics.globals": [
+        // addon
+        "prioDB",
+        "FilthyPrio",
+        // LUA
+        "ipairs",
+        "string",
+        "tostring",
+        // wow api
+        "CreateFrame",
+        "C_Timer",
+        "DEFAULT_CHAT_FRAME",
+        "GameTooltip",
+        "GetTime",
+        "GetItemInfo",
         "GetRealmName",
+        "GetGuildInfo",
+        "ItemRefTooltip",
+        "IsAltKeyDown",
+        "UnitName",
         "UnitFactionGroup",
-        "LibStub",
+        "UnitClass",
+        "IsInGuild",
         "GetAddOnMetadata",
         "GetServerTime",
         "GetBuildInfo",
-        "GetItemInfo",
-        "GameTooltip",
-        "ItemRefTooltip",
-        "prioDB",
-        "FP",
-        "DEFAULT_CHAT_FRAME"
+        // libs
+        "LibStub",
+        "geterrorhandler",
     ]
 }

@@ -10,6 +10,11 @@ globals = {
 	"prioDB",
 	"FilthyPrio",
 
+	-- LUA
+	"ipairs",
+	"string",
+	"tostring",
+
 	-- wow api
 	"CreateFrame",
 	"C_Timer",
@@ -25,6 +30,9 @@ globals = {
 	"UnitFactionGroup",
 	"UnitClass",
 	"IsInGuild",
+	"GetAddOnMetadata",
+	"GetServerTime",
+	"GetBuildInfo",
 
 	-- libs
 	"LibStub",
